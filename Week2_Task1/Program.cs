@@ -7,29 +7,36 @@ int number = int.Parse(Console.ReadLine());
 if (number <= 0)
 {
     Console.WriteLine("Please enter a positive number");
-    return; //To exit from the program
 }
-
-int product = 1;
-while (product < number)
+else
 {
-    product *= 2;
+    int product = 1;
+    while (product < number)
+    {
+        product *= 2;
+    }
+    Console.WriteLine($"Is {number} power of 2?\n" + (number == product));
 }
-Console.WriteLine($"Is {number} power of 2?\n" + (number == product));
 
-//Task 2
 Console.WriteLine();
+//Task 2
+
+number = int.Parse(Console.ReadLine()); //Reusing the same variable
+
 if (number <= 1)
 {
     Console.WriteLine("Please enter a number greater than 1");
-    return;
 }
-for (int i = 2; i * i <= number; i++) //i * i <= number is the same as i <= Math.Sqrt(number)
+else
 {
-    if (number % i == 0)
+    for (int i = 2; i * i <= number; i++) //i * i <= number is the same as i <= Math.Sqrt(number)
     {
-        Console.WriteLine($"Is {number} prime?\nFalse");
-        return;
+        if (number % i == 0)
+        {
+            Console.WriteLine($"Is {number} prime?\nFalse");
+            return; //Exit the program
+        }
     }
+    Console.WriteLine($"Is {number} prime?\nTrue");
 }
-Console.WriteLine($"Is {number} prime?\nTrue");
+
